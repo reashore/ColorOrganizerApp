@@ -1,3 +1,4 @@
+
 import { connect } from 'react-redux'
 import AddColorForm from './ui/AddColorForm'
 import SortMenu from './ui/SortMenu'
@@ -10,7 +11,7 @@ export const NewColor = connect(
     dispatch =>
         ({
             onNewColor(title, color) {
-                dispatch(addColor(title,color))
+                dispatch(addColor(title, color))
             }
         })
 )(AddColorForm)

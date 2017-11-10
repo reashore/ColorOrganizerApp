@@ -1,5 +1,5 @@
 import { Menu, NewColor, Colors } from './containers'
-import '../../stylesheets/APP.scss'
+import '../stylesheets/APP.scss'
 
 const App = () =>
     <div className="app">

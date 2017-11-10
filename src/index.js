@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -9,9 +10,10 @@ const store = storeFactory()
 window.React = React
 window.store = store
 
+const reactContainer = document.getElementById('react-container')
 render(
     <Provider store={store}>
         <App />
-    </Provider>,
-    document.getElementById('react-container')
+    </Provider>, 
+    reactContainer
 )
