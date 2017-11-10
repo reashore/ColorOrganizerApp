@@ -1,6 +1,6 @@
 
 import PropTypes from 'prop-types'
-import '../../../stylesheets/Menu.scss'
+import '../../stylesheets/Menu.scss'
 
 const options = {
     date: "SORTED_BY_DATE",
