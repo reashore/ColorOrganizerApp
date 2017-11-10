@@ -6,11 +6,6 @@ import ColorList from './ui/ColorList'
 import { addColor, sortColors, rateColor, removeColor } from '../actions'
 import { sortFunction } from '../lib/array-helpers'
 
-export const NewColor = connect(
-    null,
-    dispatch => ({ onNewColor(title, color) { dispatch(addColor(title, color)) } })
-)(AddColorForm)
-
 export const Menu = connect(
     state =>
         ({
@@ -23,6 +18,12 @@ export const Menu = connect(
             }
         })
 )(SortMenu)
+
+export const NewColor = connect(
+    null,
+    dispatch => ({ onNewColor(title, color) { 
+        dispatch(addColor(title, color)) } })
+)(AddColorForm)
 
 export const Colors = connect(
     state =>

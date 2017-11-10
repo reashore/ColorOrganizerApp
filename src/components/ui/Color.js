@@ -6,25 +6,18 @@ import TimeAgo from './TimeAgo'
 import FaTrash from 'react-icons/lib/fa/trash-o'
 import '../../stylesheets/Color.scss'
 
-class Color extends Component {
-    render() {
-        const { title, color, rating, timestamp, onRemove, onRate} = this.props
-
-        return (
-            <section className="color" style={this.style}>
-                <h1 ref="title">{title}</h1>
-                <button onClick={onRemove}>
-                    <FaTrash />
-                </button>
-                <div className="color" style={{ backgroundColor: color }}></div>
-                <TimeAgo timestamp={timestamp} />
-                <div>
-                    <StarRating starsSelected={rating} onRate={onRate}/>
-                </div>
-            </section>
-        )
-    }
-}
+const Color = ({ title, color, rating, timestamp, onRemove, onRate }) => 
+    <section className="color">
+        <h1>{title}</h1>
+        <button onClick={onRemove}>
+            <FaTrash />
+        </button>
+        <div className="color" style={{ backgroundColor: color }}></div>
+        <TimeAgo timestamp={timestamp} />
+        <div>
+            <StarRating starsSelected={rating} onRate={onRate} />
+        </div>
+    </section>
 
 Color.propTypes = {
     title: PropTypes.string.isRequired,
@@ -36,8 +29,28 @@ Color.propTypes = {
 
 Color.defaultProps = {
     rating: 0,
-    onRemove: f=>f,
-    onRate: f=>f
+    onRemove: f => f,
+    onRate: f => f
 }
 
 export default Color
+
+// class Color extends Component {
+//     render() {
+//         const { title, color, rating, timestamp, onRemove, onRate} = this.props
+
+//         return (
+//             <section className="color" style={this.style}>
+//                 <h1 ref="title">{title}</h1>
+//                 <button onClick={onRemove}>
+//                     <FaTrash />
+//                 </button>
+//                 <div className="color" style={{ backgroundColor: color }}></div>
+//                 <TimeAgo timestamp={timestamp} />
+//                 <div>
+//                     <StarRating starsSelected={rating} onRate={onRate}/>
+//                 </div>
+//             </section>
+//         )
+//     }
+// }

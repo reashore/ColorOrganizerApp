@@ -4,8 +4,8 @@
 /node_modules
 
 # build artifacts
-dist/assets/
-/dist/assets
+dist/assets/*.js
+/dist/assets/*.js
 
 # testing
 /coverage
