@@ -1,14 +1,15 @@
+
 const second = 1000,
-    minute = 60 * second,
-    hour = 60 * minute,
-    day = 24 * hour,
-    timeframe = {second, minute, hour, day},
-    breakpoints = {
-        second: 60,
-        minute: 60,
-        hour: 24,
-        day: 30
-    }
+const minute = 60 * second
+const hour = 60 * minute
+const day = 24 * hour
+const timeframe = { second, minute, hour, day }
+const breakpoints = {
+    second: 60,
+    minute: 60,
+    hour: 24,
+    day: 30
+}
 
 const toDate = timeStampString => new Date(timeStampString)
 
@@ -16,28 +17,23 @@ const getDiff = (timestamp, now) => toDate(now) - toDate(timestamp)
 
 const isUnderTime = (diff, timeframe, time) => diff / timeframe < time
 
-const diffOverTimeframe = (diff, timeframe) => Math.floor(diff/timeframe)
+const diffOverTimeframe = (diff, timeframe) => Math.floor(diff / timeframe)
 
-const printResult = (result, timeframeName) =>
-    `${result} ${timeframeName + ((result > 1) ? "s" : "")}`
+const printResult = (result, timeframeName) => `${result} ${timeframeName + ((result > 1) ? "s" : "")}`
 
 const checkDate = (diff, timeframeName, underTime, timeframe) =>
     (isUnderTime(diff, timeframe[timeframeName], underTime)) ?
-        printResult(diffOverTimeframe(diff,timeframe[timeframeName]), timeframeName) :
+        printResult(diffOverTimeframe(diff, timeframe[timeframeName]), timeframeName) :
         null
 
-const printFullDate = dateTime =>
-    `${dateTime.getMonth() + 1}/${dateTime.getDate()}/${dateTime.getFullYear()}`
+const printFullDate = dateTime => `${dateTime.getMonth() + 1}/${dateTime.getDate()}/${dateTime.getFullYear()}`
 
 const lessThanAMinute = timeString =>
     (timeString.match(/seconds/)) ?
         "less than a minute" :
-    timeString + ' ago'
+        timeString + ' ago'
 
-const _checkNext = (result, callback) =>
-    (result) ?
-        lessThanAMinute(result) :
-        callback()
+const _checkNext = (result, callback) => (result) ? lessThanAMinute(result) : callback()
 
 const checkNext = ([tfName, ...rest], timeframe, timestamp, now) =>
     _checkNext(

@@ -8,12 +8,7 @@ import { sortFunction } from '../lib/array-helpers'
 
 export const NewColor = connect(
     null,
-    dispatch =>
-        ({
-            onNewColor(title, color) {
-                dispatch(addColor(title, color))
-            }
-        })
+    dispatch => ({ onNewColor(title, color) { dispatch(addColor(title, color)) } })
 )(AddColorForm)
 
 export const Menu = connect(
